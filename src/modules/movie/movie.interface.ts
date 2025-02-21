@@ -10,7 +10,7 @@ export interface TMovie {
   description: string;
   releaseDate: Date; // or you can use `Date` if you plan to convert the string to a Date object
   genre: string;
-  slug: string;
+
   isDeleted: boolean;
   viewCount: number;
   reviews: [TReview];

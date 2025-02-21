@@ -8,7 +8,7 @@ dotenv.config();
 async function main() {
   try {
     await mongoose.connect(
-      "mongodb+srv://apollo_flix:9GGRcHJR4aWEwgkI@cluster0.6tngyrc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+      "mongodb+srv://apollo_flix:9GGRcHJR4aWEwgkI@cluster0.6tngyrc.mongodb.net/apollo_flix?retryWrites=true&w=majority&appName=Cluster0"
     );
 
     app.listen(process.env.PORT, () => {
