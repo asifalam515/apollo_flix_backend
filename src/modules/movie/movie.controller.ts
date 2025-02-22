@@ -4,6 +4,7 @@ const createMovie = async (req: Request, res: Response) => {
   try {
     const movieData = req.body;
     const result = await movieService.createMovieToDB(movieData);
+
     res.status(200).json({
       success: true,
       message: "Moive has been created",
@@ -28,8 +29,8 @@ const getMovies = async (req: Request, res: Response) => {
 };
 const getSingleMovie = async (req: Request, res: Response) => {
   try {
-    const { movieId } = req.params;
-    const result = await movieService.getSingleMovieFromDB(movieId);
+    const { slug } = req.params;
+    const result = await movieService.getSingleMovieFromDB(slug);
     res.status(200).json({
       success: true,
       message: "Retrive single Movie",

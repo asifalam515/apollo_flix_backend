@@ -14,11 +14,15 @@ const movieSchema = new Schema<TMovie>({
   description: { type: String, required: true },
   releaseDate: { type: Date, required: true },
   genre: { type: String, required: true },
-  // Ensure slugs are unique
+  slug: { type: String }, // Ensure slugs are unique
   isDeleted: { type: Boolean, default: false }, // Default value for isDeleted
   viewCount: { type: Number, default: 0 }, // Default value for viewCount
   reviews: [reviewSchema], // Embed the Review schema as an array
 });
 
+movieSchema.pre("save", function () {
+  const slug = this.title + this.releaseDate;
+  return slug;
+});
 // Create the Movie model
 export const Movie = model<TMovie>("Movie", movieSchema);
